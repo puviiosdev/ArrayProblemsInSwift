@@ -1,0 +1,25 @@
+
+
+//To find the missing number in an array of consecutive integers from 1 to N, where one number is missing
+
+/* If you know the range of numbers (from 1 to N) and one number is missing, 
+you can calculate the sum of the expected numbers and subtract the sum of the array from it to find the missing number */
+
+
+
+func findMissingNumber(in array: [Int], withinRange range: Int) -> Int? {
+    let expectedSum = range * (range + 1) / 2
+    let actualSum = array.reduce(0, +)
+    let missingNumber = expectedSum - actualSum
+    return missingNumber
+}
+
+// Example usage:
+let array = [1, 2, 4, 5, 6]
+let range = 6 // Assuming numbers are from 1 to 6
+
+if let missingNumber = findMissingNumber(in: array, withinRange: range) {
+    print("The missing number is \(missingNumber)")
+} else {
+    print("No missing number found")
+}
